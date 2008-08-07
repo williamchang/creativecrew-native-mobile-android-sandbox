@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="fill_parent"
+android:layout_height="fill_parent"
+android:background="@color/solid_black"
+>
+    <diehard.sandbox.PongView android:id="@+id/pong"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    />
+    <RelativeLayout
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+        <TextView android:id="@+id/status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:textAlign="center"
+        android:textColor="@color/solid_blue"
+        android:textSize="24sp"
+        android:visibility="visible"
+        />
+    </RelativeLayout>
+</FrameLayout>

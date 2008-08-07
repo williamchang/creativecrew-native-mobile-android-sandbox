@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name1">Sandbox</string>
+    <string name="app_name2">Console</string>
+    <string name="app_name3">Pong</string>
+
+    <string name="vendor">Creative Crew</string>
+    <string name="author">William Chang</string>
+    <string name="contextmenu_console">Console</string>
+
+    <string name="btn_clear">Append</string>
+
+    <string name="state_ready">Ready\nPress Center to Start</string>
+    <string name="state_pause">Paused\nPress Center To Resume</string>
+</resources>
