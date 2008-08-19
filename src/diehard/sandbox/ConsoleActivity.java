@@ -57,12 +57,12 @@ public class ConsoleActivity extends Activity {
         // Load XML resource layout into window's default ViewGroup.
         setContentView(R.layout.console);
         // Create widgets.
-        _rlConsole = (RelativeLayout)findViewById(R.id.console_container);
-        _etConsole = (EditText)findViewById(R.id.console_input);
-        _tvConsole = (TextView)findViewById(R.id.console_output);
+        _rlContainer = (RelativeLayout)findViewById(R.id.console_container);
+        _etInput = (EditText)findViewById(R.id.console_input);
+        _tvOutput = (TextView)findViewById(R.id.console_output);
         _btnExecute = (Button)findViewById(R.id.console_execute);
         // Set listeners.
-        _etConsole.setOnKeyListener(_key);
+        _etInput.setOnKeyListener(_key);
         _btnExecute.setOnClickListener(_click);
         // Instantiate this.
         if(!instantiateThis()) return;
@@ -81,7 +81,7 @@ public class ConsoleActivity extends Activity {
         String msgError = " is not recognized as a command.\n";
         String msgExecuted = " executed.\n";
 
-        this.updateOutput("$ " + s);
+        this.updateOutput("$ " + s + "\n");
 
         if(userInput.equals("hello world")) {
             updateOutput("\'" + userInput + "\'" + msgExecuted);
@@ -115,11 +115,11 @@ public class ConsoleActivity extends Activity {
     }
     /** Get user input. */
     public String getUserInput() {
-        return _etConsole.getText().toString();
+        return _etInput.getText().toString();
     }
     /** Update output */
     public void updateOutput(String s) {
-        _tvConsole.setText(s + _tvConsole.getText().toString());
+        _tvOutput.setText(s + _tvOutput.getText().toString());
         _counter++;
     }
     /** Create context menu. */
@@ -140,13 +140,13 @@ public class ConsoleActivity extends Activity {
             case CONSOLE_ID: {
                 if(_state == STATE_VISIBLE_TRUE) {
                     Animation anim = AnimationUtils.loadAnimation(this, R.anim.push_up_out);
-                    _rlConsole.startAnimation(anim);
-                    _rlConsole.setVisibility(View.INVISIBLE);
+                    _rlContainer.startAnimation(anim);
+                    _rlContainer.setVisibility(View.INVISIBLE);
                     _state = STATE_VISIBLE_FALSE;
                 } else if(_state == STATE_VISIBLE_FALSE) {
                     Animation anim = AnimationUtils.loadAnimation(this, R.anim.push_up_in);
-                    _rlConsole.startAnimation(anim);
-                    _rlConsole.setVisibility(View.VISIBLE);
+                    _rlContainer.startAnimation(anim);
+                    _rlContainer.setVisibility(View.VISIBLE);
                     _state = STATE_VISIBLE_TRUE;
                 }
                 break;
@@ -161,6 +161,7 @@ public class ConsoleActivity extends Activity {
         public boolean onKey(View v, int keyCode, KeyEvent event) {
             if(keyCode == KeyEvent.KEYCODE_ENTER && _pressedEnter == false) {
                 runUserInput(getUserInput());
+                _etInput.selectAll();
                 _pressedEnter = true;
                 return true;
             } else {
@@ -173,14 +174,13 @@ public class ConsoleActivity extends Activity {
     private OnClickListener _click = new OnClickListener() {
         public void onClick(View v) {
             runUserInput(getUserInput());
+            _etInput.selectAll();
         }
     };
-    /// Console view.
-    private RelativeLayout _rlConsole;
     /// Widgets.
-    private EditText _etConsole;
-    private TextView _tvConsole;
-    /// Execute button.
+    private RelativeLayout _rlContainer;
+    private EditText _etInput;
+    private TextView _tvOutput;
     private Button _btnExecute;
 
     // State.
