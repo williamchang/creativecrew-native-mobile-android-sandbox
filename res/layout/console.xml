@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/container_console"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/console_container"
 android:layout_width="fill_parent"
 android:layout_height="fill_parent"
 android:background="@color/solid_graydark"
@@ -8,30 +8,38 @@ android:paddingRight="10px"
 android:paddingBottom="10px"
 android:visibility="visible"
 >
-    <RelativeLayout android:id="@+id/controlpanel"
+    <RelativeLayout android:id="@+id/console_controlpanel"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="4px"
     android:layout_marginBottom="4px"
     android:visibility="visible"
     >
-        <Button android:id="@+id/execute"
+        <EditText android:id="@+id/console_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minEms="10"
+        android:maxEms="10"
+        >
+            <requestFocus/>
+        </EditText>
+        <Button android:id="@+id/console_execute"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_marginLeft="10px"
-        android:text="@string/btn_clear"
+        android:text="@string/btn_console_execute"
         />
     </RelativeLayout>
-    <EditText android:id="@+id/console"
+    <TextView android:id="@+id/console_output"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:layout_weight="1"
-    android:layout_below="@id/controlpanel"
+    android:layout_below="@id/console_controlpanel"
     android:padding="4px"
     android:scrollbars="vertical"
     android:fadingEdge="vertical"
-    android:background="@android:drawable/box"
+    android:background="@drawable/black"
     android:textColor="@color/solid_white"
     />
 </RelativeLayout>

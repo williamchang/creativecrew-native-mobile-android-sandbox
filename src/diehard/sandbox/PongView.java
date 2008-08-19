@@ -2,7 +2,7 @@
 @file
     PongView.java
 @brief
-    Coming soon.
+    Copyright 2008 Creative Crew. All rights reserved.
 @author
     William Chang
 @version
@@ -22,10 +22,8 @@
 
 package diehard.sandbox;
 
-import java.util.Map;
-
 import android.content.Context;
-import android.content.Resources;
+import android.content.res.*;
 import android.os.Handler;
 import android.os.Message;
 import android.util.AttributeSet;
@@ -39,16 +37,16 @@ import android.widget.TextView;
  */
 public class PongView extends TileView {
     /** Argument constructor. Constructs based on inflation from XML. */
-    public PongView(Context context, AttributeSet attrs, Map inflateParams) {
+    public PongView(Context context, AttributeSet attrs) {
         // Mandatory call to the super class.
-        super(context, attrs, inflateParams);
+        super(context, attrs);
         // Instantiate this.
         if(!instantiateThis()) return;
     }
     /** Argument constructor. */
-    public PongView(Context context, AttributeSet attrs, Map inflateParams, int defStyle) {
+    public PongView(Context context, AttributeSet attrs, int defStyle) {
         // Mandatory call to the super class.
-        super(context, attrs, inflateParams, defStyle);
+        super(context, attrs, defStyle);
         // Instantiate this.
         if(!instantiateThis()) return;
     }

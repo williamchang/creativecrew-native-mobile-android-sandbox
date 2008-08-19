@@ -2,14 +2,14 @@
 @file
     TileView.java
 @brief
-    Coming soon.
+    Copyright 2008 Creative Crew. All rights reserved.
 @author
     William Chang
 @version
     0.1
 @date
     - Created: 2007-11-22
-    - Modified: 2007-11-26
+    - Modified: 2008-08-18
     .
 @note
     References:
@@ -26,7 +26,6 @@
 package diehard.sandbox;
 
 import java.util.ArrayList;
-import java.util.Map;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -43,16 +42,16 @@ import android.view.View;
  */
 public class TileView extends View {
     /** Argument constructor. Constructs based on inflation from XML. */
-    public TileView(Context context, AttributeSet attrs, Map inflateParams) {
+    public TileView(Context context, AttributeSet attrs) {
         // Mandatory call to the super class.
-        super(context, attrs, inflateParams);
+        super(context, attrs);
         // Instantiate this.
         if(!instantiateThis()) return;
     }
     /** Argument constructor. */
-    public TileView(Context context, AttributeSet attrs, Map inflateParams, int defStyle) {
+    public TileView(Context context, AttributeSet attrs, int defStyle) {
         // Mandatory call to the super class.
-        super(context, attrs, inflateParams, defStyle);
+        super(context, attrs, defStyle);
         // Instantiate this.
         if(!instantiateThis()) return;
     }
@@ -99,7 +98,7 @@ public class TileView extends View {
     }
     /** Get tile set. */
     public Bitmap getTileSetBitmap(Drawable tileSet, int tileSetWidth, int tileSetHeight) {
-        Bitmap b = Bitmap.createBitmap(tileSetWidth, tileSetHeight, true);
+        Bitmap b = Bitmap.createBitmap(tileSetWidth, tileSetHeight, Bitmap.Config.ARGB_8888);
         Canvas c = new Canvas(b);
         tileSet.setBounds(0, 0, tileSetWidth, tileSetHeight);
         tileSet.draw(c);

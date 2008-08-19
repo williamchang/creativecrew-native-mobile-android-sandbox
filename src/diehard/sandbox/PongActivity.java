@@ -2,14 +2,14 @@
 @file
     PongActivity.java
 @brief
-    Coming soon.
+    Copyright 2008 Creative Crew. All rights reserved.
 @author
     William Chang
 @version
     0.1
 @date
     - Created: 2007-11-21
-    - Modified: 2007-11-21
+    - Modified: 2008-08-18
     .
 @note
     References:
@@ -34,9 +34,9 @@ import android.widget.TextView;
 public class PongActivity extends Activity {
     /** Called when the activity is first created. */
     @Override
-    public void onCreate(Bundle icicle) {
+    public void onCreate(Bundle savedInstanceState) {
         // Mandatory call to the super class.
-        super.onCreate(icicle);
+        super.onCreate(savedInstanceState);
         // Remove title bar.
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         // Load XML resource layout into window's default ViewGroup.
@@ -45,7 +45,7 @@ public class PongActivity extends Activity {
         // Instantiate this.
         if(!instantiateThis()) return;
         // Process state.
-        if (icicle == null) {
+        if (savedInstanceState == null) {
             // New state.
             _pongView.setState(PongView.READY);
         } else {
@@ -66,9 +66,7 @@ public class PongActivity extends Activity {
         // Apply a tint to any windows behind this one.  Doing a tint this
         // way is more efficient than using a translucent background.  Note
         // that the tint color really should come from a resource.
-        WindowManager.LayoutParams lp = getWindow().getAttributes();
-        lp.tintBehind = 0x60000820;
-        getWindow().setAttributes(lp);
+        setContentView(R.layout.translucent_background);
     }
 
     private PongView _pongView;

@@ -2,14 +2,14 @@
 @file
     MainActivity.java
 @brief
-    Coming soon.
+    Copyright 2008 Creative Crew. All rights reserved.
 @author
     William Chang
 @version
     0.1
 @date
     - Created: 2007-11-16
-    - Modified: 2007-11-20
+    - Modified: 2008-08-2008
     .
 @note
     References:
@@ -45,9 +45,9 @@ import android.widget.Button;
 public class MainActivity extends Activity implements View.OnClickListener {
     /** Called when the activity is first created. */
     @Override
-    public void onCreate(Bundle icicle) {
+    public void onCreate(Bundle savedInstanceState) {
         // Mandatory call to the super class.
-        super.onCreate(icicle);
+        super.onCreate(savedInstanceState);
 
         // Remove title bar.
         requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -68,7 +68,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         // Start the next activity.
         startActivity(itt);
         // Create animation.
-        Animation anim = AnimationUtils.loadAnimation(this, android.R.anim.app_exit);
+        Animation anim = AnimationUtils.loadAnimation(this, android.R.anim.fade_out);
         _timer = anim.getDuration();
         // Start animation.
         v.startAnimation(anim);

@@ -8,7 +8,7 @@
     <string name="author">William Chang</string>
     <string name="contextmenu_console">Console</string>
 
-    <string name="btn_clear">Append</string>
+    <string name="btn_console_execute">Execute</string>
 
     <string name="state_ready">Ready\nPress Center to Start</string>
     <string name="state_pause">Paused\nPress Center To Resume</string>
