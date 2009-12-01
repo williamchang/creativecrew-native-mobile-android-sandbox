@@ -60,6 +60,7 @@ public class PongView extends TileView {
         _direction = HALT;
         _nextDirection = HALT;
 
+        _ballDirection = 2;
         _ballVelocityX = 1;
         _ballVelocityY = 1;
 
@@ -190,6 +191,9 @@ public class PongView extends TileView {
     }
     /** Move ball. */
     private void moveBall() {
+        _mapTilesInViewWidth = (int)Math.floor(getWidth() / _map1.getTileWidth());
+        _mapTilesInViewHeight = (int)Math.floor(getHeight() / _map1.getTileHeight());
+        
         if(_ballDirection == 0) {
             _ballX -= _ballVelocityX;
             _ballY -= _ballVelocityY;
@@ -210,13 +214,13 @@ public class PongView extends TileView {
             _ballDirection = 3;
         } else if(_ballDirection == 1 && _ballY < 0) {
             _ballDirection = 2;
-        } else if(_ballDirection == 1 && _ballX > getWidth()) {
+        } else if(_ballDirection == 1 && _ballX > _mapTilesInViewWidth) {
             _ballDirection = 0;
-        } else if(_ballDirection == 2 && _ballY > getHeight()) {
+        } else if(_ballDirection == 2 && _ballY > _mapTilesInViewHeight) {
             _ballDirection = 1;
-        } else if(_ballDirection == 2 && _ballX > getWidth()) {
+        } else if(_ballDirection == 2 && _ballX > _mapTilesInViewWidth) {
             _ballDirection = 3;
-        } else if(_ballDirection == 3 && _ballY > getHeight()) {
+        } else if(_ballDirection == 3 && _ballY > _mapTilesInViewHeight) {
             _ballDirection = 0;
         } else if(_ballDirection == 3 && _ballX < 0) {
             _ballDirection = 2;
@@ -241,6 +245,9 @@ public class PongView extends TileView {
     private Entity _map1;
     private Entity _ball1;
 
+    private int _mapTilesInViewWidth;
+    private int _mapTilesInViewHeight;
+    
     /// Ball horizontal position, primitive data type.
     private int _ballX;
     /// Ball vertical position, primitive data type.
