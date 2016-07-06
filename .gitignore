@@ -1,0 +1,9 @@
+# Set certain folders/files or patterns to be ignored.
+.svn/
+.DS_Store
+
+.classpath
+.project
+bin/
+gen/
+assets/
